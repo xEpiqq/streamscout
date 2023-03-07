@@ -26,7 +26,7 @@ function Page() {
     setRerenderHack(!rerenderHack)
   }
 
-  function deleteItem(movie) {
+  function deleteItem(movie: Movie) {
     console.log(movie)
     current_movies.splice(current_movies.indexOf(movie), 1)    
     console.log("deleted")
