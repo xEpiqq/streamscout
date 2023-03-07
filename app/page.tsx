@@ -3,7 +3,9 @@ import React from 'react'
 import s from './page.module.scss'
 import { useState } from 'react'
 
-const current_movies = []
+type Movie = string;
+
+const current_movies: Movie[] = [];
 
 function Page() {
 
