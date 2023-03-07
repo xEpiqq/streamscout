@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 const current_movies = []
 
-function page() {
+function Page() {
 
   const [addMovie, setAddMovie] = useState("")
   const [rerenderHack, setRerenderHack] = useState(false)
@@ -56,4 +56,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
