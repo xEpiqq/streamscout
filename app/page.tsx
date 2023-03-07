@@ -11,6 +11,7 @@ function Page() {
 
   const [addMovie, setAddMovie] = useState("")
   const [rerenderHack, setRerenderHack] = useState(false)
+  const [email, setEmail] = useState("")
 
   function addMovieToList() {
       const addMovieWithoutSpaces = addMovie.replace(/\s/g, '')
@@ -21,6 +22,16 @@ function Page() {
   }
 
   function submitList() {
+    if (current_movies.length === 0) {
+      alert("Please add a movie to the list")
+      return
+    }
+    if (email === "") {
+      alert("Please enter an email address")
+      return
+    }
+
+    
     current_movies.length = 0;
     console.log("submitted")
     setRerenderHack(!rerenderHack)
@@ -53,7 +64,10 @@ function Page() {
             ))}
         </div>
 
-      <button className={s.submitbutton} type='submit' onClick={() => submitList()}>submit</button>
+      <div className={s.email_and_submit}>
+        <input className={s.emailbox} type='text' value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={(e) => { if (e.keyCode === 13) { submitList()}}} placeholder='email to send results to' />
+        <button className={s.submitbutton} type='submit' onClick={() => submitList()}>send now</button>
+      </div>
     </div>
   )
 }
